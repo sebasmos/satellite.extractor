@@ -31,8 +31,9 @@ def plot_image(image, factor=1.0, clip_range = None, **kwargs):
 #   -75.60946,   6.191755,   -75.554535,   6.283562
 betsiboka_coords_wgs84 =  [-75.60946,   6.191755,   -75.554535,   6.283562]
 
-CLIENT_ID = "5a0eee73-51af-4cee-b314-7169ce5798e5"
-CLIENT_SECRET = "h@{#0;:P^Ol(xk04G#@Q%29r>?k2rrZ>IKg}4h:?"
+
+CLIENT_ID = "****"
+CLIENT_SECRET =  "****"
 
 config = SHConfig()
 

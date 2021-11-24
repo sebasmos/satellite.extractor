@@ -144,6 +144,7 @@ def main(CLIENT_ID, CLIENT_SECRET, coordinates):
 if __name__ == '__main__':
     
     coordinates = [-76.55323133405957, 3.4062672204498083, -76.4860619546151, 3.473745747318065]
-    CLIENT_ID = "5a0eee73-51af-4cee-b314-7169ce5798e5"
-    CLIENT_SECRET = "h@{#0;:P^Ol(xk04G#@Q%29r>?k2rrZ>IKg}4h:?"
+
+    CLIENT_ID = "****"
+    CLIENT_SECRET =  "****"
     main(CLIENT_ID, CLIENT_SECRET,coordinates )
