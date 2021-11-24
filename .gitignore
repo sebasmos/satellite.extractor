@@ -3,3 +3,5 @@ distributions.egg-info
 gdalwmscache
 sentinelhub-py
 borrar
+.ipynb_checkpoints
+backup_datasets
