@@ -5,3 +5,5 @@ sentinelhub-py
 borrar
 .ipynb_checkpoints
 backup_datasets
+*.pyc
+
