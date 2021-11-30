@@ -27,7 +27,7 @@ dic = {'Cali': [-76.55323133405957, 3.4062672204498083, -76.4860619546151, 3.473
     	    'Ibagué': [-75.2341715228093, 4.404067220316198, -75.16692155913864, 4.471545747318066]}
     
 
-def get_images(coordenates, years, weeks_2015, img_format, root_images, CLIENT_ID, CLIENT_SECRET):
+def get_images(coordenates, years, weeks, weeks_2015, img_format, root_images, CLIENT_ID, CLIENT_SECRET):
     # Download data
     folder_path = ""
     for year in years:
@@ -137,7 +137,7 @@ if __name__ == "__main__":
     		os.makedirs(city_str)
     	  
     	# Download images on given range
-    	get_images(current_coor, years, weeks_2015, img_format, root_images, CLIENT_ID, CLIENT_SECRET)
+    	get_images(current_coor, years, weeks, weeks_2015, img_format, root_images, CLIENT_ID, CLIENT_SECRET)
     
     	# Move to structured folder in DATASETS
     	root_images_store = "." + root_images
