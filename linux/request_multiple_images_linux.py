@@ -103,18 +103,18 @@ def download_multiple_images(coordinates, start, year, CLIENT_ID, CLIENT_SECRET)
             };
         }
         function evaluatePixel(sample) {
-            return [sample.B12,
-                    sample.B11,
-                    sample.B10, 
-                    sample.B09,
-                    sample.B08, 
-                    sample.B07, 
-                    sample.B06, 
-                    sample.B05, 
-                    sample.B04, 
-                    sample.B03, 
+            return [sample.B01, 
+                    sample.B04,
+                    sample.B03,
                     sample.B02,
-                    sample.B01];
+                    sample.B05, 
+                    sample.B06, 
+                    sample.B07, 
+                    sample.B08, 
+                    sample.B09, 
+                    sample.B10, 
+                    sample.B11,
+                    sample.B12];
         }
     """
     
@@ -125,7 +125,7 @@ def download_multiple_images(coordinates, start, year, CLIENT_ID, CLIENT_SECRET)
     # If folder doesn't exist, then create it.
     
     # if windows: 
-    path = os.path.abspath(os.getcwd()) + "\\data"  + "\\" + year
+    path = os.path.abspath(os.getcwd()) + "//data"  + "//" + year
     # if linux: path = os.path.abspath(os.getcwd()) + "/data"  + "/" year
     
     if not os.path.isdir(path):
