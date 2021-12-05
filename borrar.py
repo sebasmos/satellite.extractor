@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 
 import shutil, os
 from sentinelhub import SHConfig
@@ -73,35 +72,19 @@ def get_images(dic, coordenates, years, weeks, weeks_2015, img_format, root_imag
 
 
 if __name__ == "__main__":
+    
     CLIENT_ID = "5a0eee73-51af-4cee-b314-7169ce5798e5"
     CLIENT_SECRET = "h@{#0;:P^Ol(xk04G#@Q%29r>?k2rrZ>IKg}4h:?"
-    '''
-    dico = {'Cali': [-76.55323133405957, 3.4062672204498083, -76.4860619546151, 3.473745747318065],
+    
+    dic = {'Cali': [-76.55323133405957, 3.4062672204498083, -76.4860619546151, 3.473745747318065],
         	    'Medellín': [-75.60847058045997, 6.210967220073269, -75.5410220422612, 6.278445747318065],
         	    'Villavicencio': [-73.66295855834497, 4.108767220355771, -73.59573458823247, 4.176245747318064],
         	    'Cúcuta': [-72.53849203162315, 7.873767219848251, -72.47080007014465, 7.941245747318064],
         	    'Ibagué': [-75.2341715228093, 4.404067220316198, -75.16692155913864, 4.471545747318066]}
-    '''
     # path to municipalities
     path_csv = "./csv/coordinates720_all_municipalities.csv"
     dict_coordinates =  pd.read_csv(path_csv)
     dict_coordinates = dict(zip(dict_coordinates['Municipality code'], dict_coordinates.square))
-    
-    
-    coordenadas = []
-    municipality = []
-    for k, v in dict_coordinates.items():
-        municipality.append(k)
-        res = [float(value) for value in v[1:-1].split(', ')]
-        res = np.array(res)
-        coordenadas.append(res)
-        
-    columns_names = {'municipalities':municipality, 
-                 'coordinates': coordenadas}
-    df = pd.DataFrame(data=columns_names)
-        
-    new_coord = dict((columns_names))
-    
     # Define the range of years
     img_format = "tiff"
     '''
@@ -143,25 +126,23 @@ if __name__ == "__main__":
     if not os.path.isdir(temporal_path):
         os.makedirs(temporal_path)
         print("Creating temporal data folder")
-    
-    num = len(new_coord["municipalities"])
-    #print(f"Number of cities: {len(num)}")
+        
+    print(f"Number of cities: {len(dic)}")
     
         	 
-    for i in range(num):
-        
-    	print(f"City: {new_coord['municipalities'][i]} - Coordinates: {new_coord['coordinates'][i]}")	    	
-
-    	current_coor = list(new_coord["coordinates"][i])
-        
-
-    	city_str = "DATASET" + "/" + str(new_coord['municipalities'][i])
+    for i in dic:
+    
+    	print(f"City: {i} - Coordinates: {dic[i]}")	
+    	
+    	current_coor = dic[i]
+    	
+    	city_str = "DATASET" + "/" + str(i)
     	
     	if not os.path.exists(city_str):
     		os.makedirs(city_str)
     	  
     	# Download images on given range
-    	get_images(new_coord, current_coor, years, weeks, weeks_2015, img_format, root_images, CLIENT_ID, CLIENT_SECRET)
+    	get_images(dic, current_coor, years, weeks, weeks_2015, img_format, root_images, CLIENT_ID, CLIENT_SECRET)
     
     	# Move to structured folder in DATASETS
     	root_images_store = "." + root_images
