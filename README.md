@@ -54,7 +54,7 @@ set to 10 metres
 
 
 * Images based on Epiweek clouds are avoided using the LeastCC algorithm, which is
-configured using sentinel-hub API as a scriphttps://github.com/sebasmos/satellite.extractor/blob/main/downloader_sentinel_all_cities.ipynbt request to select the image with the least
+configured using sentinel-hub API as a script request to select the image with the least
 amount of clouds per epi week. It uses the satellite metadata to fetch the days in mosaicking
 order in terms of the least amount of clouds. This is done through the API and Geopedia,
 which orders the images based on the amount of captured features per 12 000 sq km. There
@@ -62,7 +62,7 @@ is [here](https://github.com/sentinel-hub/sentinelhub-py/blob/23f267db476d26ddf7
 
 * Google drive works like a local hard drive to store the images. However this could be done
 on any virtual machine as the code uses the Sentinel API to create, modify, copy and delete
-multiple folders/files automatically with thhttps://github.com/sebasmos/satellite.extractor/blob/main/downloader_sentinel_all_cities.ipynbe package shutil, then storing all pre-processed
+multiple folders with the package shutil, then storing all pre-processed
 images with the right format into a single folder called DATASETS, ultimately moved to GCP. In
 an alternative pipeline we could e.g , download all images on a GCP bucket or on an Oracle
 bucket instead of using Google drive or GCP at al
