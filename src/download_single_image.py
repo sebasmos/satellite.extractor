@@ -12,7 +12,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import shutil
 import sys
-sys.path.insert(0,'..') # https://stackoverflow.com/questions/714063/importing-modules-from-parent-folder 
+sys.path.insert(0,'../') # https://stackoverflow.com/questions/714063/importing-modules-from-parent-folder 
+
 from sentinelhub import MimeType, CRS, BBox, SentinelHubRequest, SentinelHubDownloadClient, DataCollection, bbox_to_dimensions, DownloadRequest
 
 def plot_image(image, factor=1.0, clip_range = None, **kwargs):
@@ -133,7 +134,6 @@ def main(CLIENT_ID, CLIENT_SECRET, coordinates):
 if __name__ == '__main__':
     
     coordinates = [-76.55323133405957, 3.4062672204498083, -76.4860619546151, 3.473745747318065]
-
     CLIENT_ID = "****"
     CLIENT_SECRET =  "****"
     main(CLIENT_ID, CLIENT_SECRET, coordinates)

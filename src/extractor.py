@@ -73,8 +73,8 @@ def get_images(dic, coordenates, years, weeks, weeks_2015, img_format, root_imag
 
 
 if __name__ == "__main__":
-    CLIENT_ID = "5a0eee73-51af-4cee-b314-7169ce5798e5"
-    CLIENT_SECRET = "h@{#0;:P^Ol(xk04G#@Q%29r>?k2rrZ>IKg}4h:?"
+    CLIENT_ID = ""
+    CLIENT_SECRET = ""
     '''
     dico = {'Cali': [-76.55323133405957, 3.4062672204498083, -76.4860619546151, 3.473745747318065],
         	    'Medellín': [-75.60847058045997, 6.210967220073269, -75.5410220422612, 6.278445747318065],
@@ -176,6 +176,6 @@ if __name__ == "__main__":
     	images = glob.glob(dataset_store+"/*")
         
     '''
-    shutil.rmtree("data")
+    shutil.rmtree("data")   
     shutil.rmtree("DATASET")
     '''

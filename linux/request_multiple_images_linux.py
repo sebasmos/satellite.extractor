@@ -29,7 +29,6 @@ def cleaners(dataset, root_images):
     for root, dirs, files in os.walk(dataset, topdown=True):
         for name in files:
              path = os.path.join(root, name)
-                #print(path)
              if ".tiff" in path:
                     os.remove(path)
                     

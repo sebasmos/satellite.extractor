@@ -1,10 +1,14 @@
 data
 distributions.egg-info
 gdalwmscache
-sentinelhub-py
-borrar
+notebooks/locally/sentinelhub-py
+DATASET
 .ipynb_checkpoints
+dconf
 backup_datasets
 *.pyc
 csv
+sentinelhub-py
 *.csv
+sentinelhub.egg-info
+dist
