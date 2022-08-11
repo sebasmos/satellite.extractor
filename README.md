@@ -28,7 +28,7 @@
 
     `git clone https://github.com/sentinel-hub/sentinelhub-py.git`
 
-    `cd sentinelhub-py`to contact me
+    `cd sentinelhub-py`
 
     ` python setup.py build`
 
@@ -37,7 +37,7 @@
     ` cd ..`
 
     ` pip install -r requirements.txt`
-to contact me
+
     For more information, refer to [official documentation](https://sentinelhub-py.readthedocs.io/en/latest/install.html).
 
 <hr>
@@ -73,14 +73,14 @@ on any virtual machine as the code uses the Sentinel API to create, modify, copy
 multiple folders with the package shutil, then storing all pre-processed
 images with the right format into a single folder called DATASETS, ultimately moved to GCP. In
 an alternative pipeline we could e.g , download all images on a GCP bucket or on an Oracle
-bucket instead of using Google drive or GCP at al
+bucket instead of using Google drive or GCP.
 
 <hr>
 
 
-## Data per year 
+## Satellite imagery based on Epi-week  
 
-Based on [epi week](https://www.cmmcp.org/mosquito-surveillance-data/pages/epi-week-calendars-2008-2021)
+Each satellite image is selected week-wise based on the [epi week](https://www.cmmcp.org/mosquito-surveillance-data/pages/epi-week-calendars-2008-2021).
 
 * 2016: (2016,1,3) - (2016,12,31)
 
@@ -96,9 +96,9 @@ Based on [epi week](https://www.cmmcp.org/mosquito-surveillance-data/pages/epi-w
 
 ## Use cases:
 
-1. [Read GCP bucket to Google Colab](https://github.com/sebasmos/satellite.extractor/blob/main/Reading_GCP_from_Colab.ipynb)
-2. [Download satellite data for 5 cities](https://github.com/sebasmos/satellite.extractor/blob/main/downloader_sentinel_5_cities.ipynb)
-3. [Download satellite data for 1024 cities](https://github.com/sebasmos/satellite.extractor/blob/main/downloader_sentinel_all_cities.ipynb)
+1. [Read GCP bucket to Google Colab](https://github.com/sebasmos/satellite.extractor/blob/main/notebooks/Reading_GCP_from_Colab.ipynb)
+2. [Download satellite data for 5 cities](https://github.com/sebasmos/satellite.extractor/blob/main/notebooks/downloader_sentinel_5_cities.ipynb)
+3. [Download satellite data for 1024 cities](https://github.com/sebasmos/satellite.extractor/blob/main/notebooks/downloader_sentinel_all_cities.ipynb)
 
 ## Contributions
 
