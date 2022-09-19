@@ -12,3 +12,4 @@ sentinelhub-py
 *.csv
 sentinelhub.egg-info
 dist
+*.json
