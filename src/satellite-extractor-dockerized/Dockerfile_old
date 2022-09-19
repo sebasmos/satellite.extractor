@@ -1,0 +1,177 @@
+#FROM python:3.8.9-buster
+#FROM tensorflow/tensorflow:2.4.1-gpu-jupyter 
+# Pull Ubuntu base image
+FROM ubuntu:18.04 
+## The MAINTAINER instruction sets the author field of the generated images.
+MAINTAINER ulsordonez@unicauca.edu.co
+# Configure environment path
+ENV PATH="/root/miniconda3/bin:${PATH}"
+ARG PATH="/root/miniconda3/bin:${PATH}"
+# Install all necessary packages
+
+RUN apt update && apt install -y python3-dev wget git curl
+
+RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
+    && mkdir root/.conda \
+    && sh Miniconda3-latest-Linux-x86_64.sh -b \
+    && rm -f Miniconda3-latest-Linux-x86_64.sh
+
+RUN conda create -y -n ml python==3.7
+
+RUN /bin/bash  -c "source activate ml"
+
+#---------------------START GCLOUD CONFIG--------------------------------------------
+
+##### Install gcloud
+# Downloading gcloud package
+RUN curl https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz > /tmp/google-cloud-sdk.tar.gz
+
+# Installing the package
+RUN mkdir -p /usr/local/gcloud \
+  && tar -C /usr/local/gcloud -xvf /tmp/google-cloud-sdk.tar.gz \
+  && /usr/local/gcloud/google-cloud-sdk/install.sh
+
+# Adding the package path to local
+ENV PATH $PATH:/usr/local/gcloud/google-cloud-sdk/bin
+
+#--------------------- END GCLOUD CONFIG--------------------------------------------
+
+# Run the code:
+COPY . Dengue/
+
+RUN /bin/bash  -c "cd Dengue && pip install -r requirements.txt && python Dengue/coordinate_extraction.py"
+
+#---------------------START SentinelHub CONFIG--------------------------------------------
+
+# INSTALL SENTINELHUB
+# !pip install sentinelhub
+# ! pip install sentinelhub --upgrade
+RUN git clone https://github.com/sentinel-hub/sentinelhub-py.git
+RUN /bin/bash -c "cd Dengue/sentinelhub-py && pip install -r requirements.txt && python setup.py build && python setup.py install"
+# Install dependencies
+#! python ./sentinelhub-py/setup.py build
+#! python ./sentinelhub-py/setup.py install
+#! pip install -r sentinelhub-py/requirements.txt
+
+RUN cd Dengue \
+    && source activate ml \
+    python satellite.extractor.py
+
+
+#RUN /bin/bash -c "python3.7 /src/satellite.extractor.py"
+
+#---------------------START SentinelHub CONFIG--------------------------------------------
+
+
+# Pull Ubuntu base image
+FROM ubuntu:18.04 
+## The MAINTAINER instruction sets the author field of the generated images.
+MAINTAINER ulsordonez@unicauca.edu.co
+# Configure environment path
+ENV PATH="/root/miniconda3/bin:${PATH}"
+ARG PATH="/root/miniconda3/bin:${PATH}"
+# Install all necessary packages
+
+RUN apt update && apt install -y python3-dev wget git curl
+
+RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
+    && mkdir root/.conda \
+    && sh Miniconda3-latest-Linux-x86_64.sh -b \
+    && rm -f Miniconda3-latest-Linux-x86_64.sh
+
+RUN conda create -y -n ml python==3.7
+
+RUN /bin/bash  -c "source activate ml"
+
+#---------------------START GCLOUD CONFIG--------------------------------------------
+
+##### Install gcloud
+# Downloading gcloud package
+RUN curl https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz > /tmp/google-cloud-sdk.tar.gz
+
+# Installing the package
+RUN mkdir -p /usr/local/gcloud \
+  && tar -C /usr/local/gcloud -xvf /tmp/google-cloud-sdk.tar.gz \
+  && /usr/local/gcloud/google-cloud-sdk/install.sh
+
+# Adding the package path to local
+ENV PATH $PATH:/usr/local/gcloud/google-cloud-sdk/bin
+
+#--------------------- END GCLOUD CONFIG--------------------------------------------
+# Run the code:
+COPY . Dengue/
+RUN /bin/bash  -c "cd Dengue && pip install -r requirements.txt && python Dengue/coordinate_extraction.py"
+#---------------------START SentinelHub CONFIG--------------------------------------------
+RUN git clone https://github.com/sentinel-hub/sentinelhub-py.git
+RUN /bin/bash -c "cd Dengue/sentinelhub-py && pip install -r requirements.txt && python setup.py build && python setup.py install"
+RUN cd Dengue \
+    && source activate ml \
+    python satellite.extractor.py
+
+#---------------------START SentinelHub CONFIG--------------------------------------------
+
+
+#---------------------START GCLOUD CONFIG--------------------------------------------
+
+##### Install gcloud
+# Downloading gcloud package
+RUN curl https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz > /tmp/google-cloud-sdk.tar.gz
+
+# Installing the package
+RUN mkdir -p /usr/local/gcloud \
+  && tar -C /usr/local/gcloud -xvf /tmp/google-cloud-sdk.tar.gz \
+  && /usr/local/gcloud/google-cloud-sdk/install.sh
+
+# Adding the package path to local
+ENV PATH $PATH:/usr/local/gcloud/google-cloud-sdk/bin
+
+#--------------------- END GCLOUD CONFIG--------------------------------------------
+
+# Run the code:
+COPY . Dengue/
+
+RUN /bin/bash  -c "cd Dengue && pip install -r requirements.txt && python Dengue/coordinate_extraction.py"
+
+#---------------------START SentinelHub CONFIG--------------------------------------------
+
+# INSTALL SENTINELHUB
+# !pip install sentinelhub
+# ! pip install sentinelhub --upgrade
+RUN git clone https://github.com/sentinel-hub/sentinelhub-py.git
+RUN /bin/bash -c "cd Dengue/sentinelhub-py && pip install -r requirements.txt && python setup.py build && python setup.py install"
+# Install dependencies
+#! python ./sentinelhub-py/setup.py build
+#! python ./sentinelhub-py/setup.py install
+#! pip install -r sentinelhub-py/requirements.txt
+
+#RUN cd src \
+#    && source activate ml \
+#    && pip install -r requirements.txt
+
+#RUN /bin/bash -c "python3.7 /src/satellite.extractor.py"
+
+#---------------------START SentinelHub CONFIG--------------------------------------------
+
+
+-----
+
+
+#---------------------START GCLOUD CONFIG--------------------------------------------
+##### Install gcloud
+# Downloading gcloud package
+RUN curl https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz > /tmp/google-cloud-sdk.tar.gz
+#RUN curl https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz > /tmp/google-cloud-sdk.tar.gz
+
+# Installing the package
+RUN mkdir -p /usr/local/gcloud \
+  && wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-289.0.0-darwin-x86_64.tar.gz \
+  && tar -C /usr/local/gcloud -xvf /usr/local/gcloud/google-cloud-sdk-289.0.0-darwin-x86_64.tar.gz \
+  && /usr/local/gcloud/google-cloud-sdk/install.sh
+# Adding the package path to local
+ENV PATH $PATH:/usr/local/gcloud/google-cloud-sdk/bin
+#--------------------- END GCLOUD CONFIG--------------------------------------------
+
+# Run the code:
+COPY . Dengue/
+
+RUN /bin/bash  -c "cd Dengue && pip install -r requirements.txt && python Dengue/coordinate_extraction.py"

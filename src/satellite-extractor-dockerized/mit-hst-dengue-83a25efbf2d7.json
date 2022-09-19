@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "mit-hst-dengue",
+  "private_key_id": "83a25efbf2d7cf2897c748532140db58466c776b",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDV1Cmnb9m40h0k\nW4Bwm2wp9aVIje3a1Iqq27I4iJfIWlvOrcPA3cvnA0xKJNU20v+QXA/VHKCe9SP2\nKh6CEnuk+ZXlshdrIAv6F1Idpgf0fOq/X7IME+rMx2lYgWRvNKfHe7VIrmHTTF6e\nbrIFbkF5e/mglfr3eIlfw3gYCVQhx4lgpjE1DTS2xSbvAZV7093o1CBVF+FN/QVt\nWwy/NhRgelY9YuB8zz2VDd5d6p9+ijxsdXpb+2rly71xey/sWoKwiheEaTLXvkSt\nZgkOF25NGnLqzUgOmcjARGkCBUE/Ya2GBWSAVUZNHQFFkMn9IUsk1MYDdQhud4rg\nNDtBSbVzAgMBAAECggEABQLz9vioIazLAg8i84CxCEq5lPm+mWJh3Z9IjgqlhAya\nGj34WIzaOo/ZOeOjG6XWV4vQ0y3YleEo9pwGGwZT34n5+WgzJE+b+ECTrB44EYLb\n/aBAjAfreOEzlt9xeynAxOwhU5LCuDESBqSRh48N+cruDtV1DFfG4He0WNvfHOuF\nTsArzGW+UEa1I0pOGDhD4N8XFC8/RALcTjQ60KH6PcouV/vb3ocC+ZZ+/AG8xxNx\nqua9aQikIQ286/XfkU+pQEU4mPXUewowzZX29HVcun/nqdachKYyfVhBt3dO90zE\nfVKP7P4v8Mizxu8YvaIN8ZqYMFDv6Ti/rI7xuJsQAQKBgQD6TlUsdWFK4GP7vLQp\nSSXqDbUlax3v/Y1l1AJDdoezB4IIVq1cOmSOCCEtVFPREPoVlAxIrpNFMCkwost8\nwO8OaRU0dO91nbFHPHv3zj7oCKKb6I7ezIS7CVgVXGZalqYMhXsXCXpGS1NId9Ar\n99L4rIgjpxXki3gzIjOau2j2lwKBgQDasWdCp2og1Yru3Q/bxvPvqqBSXkFeGr+S\nFpdIeTc8DZDy36zf3Jpvc1iYns1XoDFcdFfPDGX0F/2N243HTjcG9Qtosmd/v5sE\nJR6k2HWo9Qd6t91aDEvdH8x7sXMpjsb/UggYNIDYLa5Lh/Cr5ixkhuBV4C8aMY3c\nMOY/Q79PhQKBgQC7vueqGj0o0ZiNKOSllwVGQpPeBjOFYFSfzV8JRS3Rvk7tfD46\nUF4+HqDsBDV+OlKqvspb9f3mxpIOtf0VjQ2CbJWILDG0sdxYB2kg3WVX26pEcTJA\nsXzZYc/c7dqkFh1khPZnuCcr9LH6SEwvvopTFe5jd583Ntmo2P2GEQ5Q7wKBgQCZ\nKl6z5CUEUgs4OEN/HdyDIvGePr1xdzJs0r2p2JvCx42ZTOb68rqHDDYkzjPrBxsL\nMcC+FmThjFvdGsQ1rqYDjWQsM6chZcTgJk9MDP57EwHmBRhWlP4dJMRGbYXGuWTO\nNVnN+hezUGseI1uASXkV/xDnlFfo9IPyj5zy+jPnMQKBgAE8o8/1NhSphX9iNfwT\np/rQsf34B87d0BeurB5dJ8J2ihG1An+atj4Yw/d48BksfI73m85fyiZICiizDEmO\n0+zy8D6nf761/zvzZOjPeda444KBgXwDAm7ZioaSHTBgcmTi/mh6T42nsbAipFv+\n7F4+kHfuP2uWYnzbWI8M4YP/\n-----END PRIVATE KEY-----\n",
+  "client_email": "dengue@mit-hst-dengue.iam.gserviceaccount.com",
+  "client_id": "115051768767222091771",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/dengue%40mit-hst-dengue.iam.gserviceaccount.com"
+}
