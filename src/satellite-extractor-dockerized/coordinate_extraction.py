@@ -2,25 +2,26 @@
 import ee
 # Import Numpy
 import numpy as np
-
+import pandas as pd
+import config
 
 """Inputs: """
 # Trigger the authentication flow.
 # https://developers.google.com/earth-engine/guides/service_account#use-a-service-account-with-a-private-key
 # https://signup.earthengine.google.com/#!/service_accounts
-service_account = 'dengue@mit-hst-dengue.iam.gserviceaccount.com'
-credentials = ee.ServiceAccountCredentials(service_account, 'mit-hst-dengue-83a25efbf2d7.json')
+service_account = 'ee-account@mit-hst-dengue.iam.gserviceaccount.com'
+credentials = ee.ServiceAccountCredentials(service_account, './data/mit-hst-dengue-83a25efbf2d7.json')
 
 # Initialize the library.
 ee.Initialize(credentials)
 
 # Width and Heigth [px]
-LENGTH = 750
+LENGTH = config.LENGTH
 # Resolution of satellite [px/m] (10 if Sentinel)
-RESOLUTION = 10
+RESOLUTION = config.RESOLUTION
 # Latitude, Longitude
-latitude = 3.4400
-longitude = -76.5197
+latitude = config.LATITUDE
+longitude = config.LONGITUDE
 
 """ Functions: """
 
@@ -84,10 +85,15 @@ def get_square_coordinates(coordinates):
   
   return coordinates_square
 
+
 """ Generate the coordinates Test: """
 center_coordinates = [latitude, longitude]
 
 square_coordinates = get_square_coordinates(center_coordinates)
 
 # Output:
-print(square_coordinates)
+file = {"Municipality code": config.CODE,
+        "square": [square_coordinates]}
+file = pd.DataFrame(file)
+file.to_csv("./data/data.csv")
+print(file)
