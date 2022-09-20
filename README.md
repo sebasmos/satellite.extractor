@@ -13,6 +13,14 @@
 </p>
 <hr/>
 
+## Docker pipeline
+
+```
+docker build -f Dockerfile -t docker .
+docker run -v /home/sebasmos/Desktop/satellite.extractor/src/satellite-extractor-dockerized:/Dengue -ti docker /bin/bash
+
+```
+
 
 ## Working locally
 
