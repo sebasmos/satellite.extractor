@@ -3,7 +3,7 @@ distributions.egg-info
 gdalwmscache
 notebooks/locally/sentinelhub-py
 DATASET
-.ipynb_checkpoints
+*.ipynb_checkpoints
 dconf
 backup_datasets
 *.pyc
@@ -12,3 +12,6 @@ sentinelhub-py
 *.csv
 sentinelhub.egg-info
 dist
+*.json
+__pycache__
+mit-hst-dengue-83a25efbf2d7.json
