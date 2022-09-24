@@ -37,6 +37,13 @@ docker build -f Dockerfile -t docker .
 
 Run with syncronized volume:
 
+
+```
+docker run -v path_to_code:/Dengue -ti docker /bin/bash
+```
+
+Example: 
+
 ```
 docker run -v /home/sebasmos/Desktop/satellite.extractor/src/satellite-extractor-dockerized:/Dengue -ti docker /bin/bash
 ```
