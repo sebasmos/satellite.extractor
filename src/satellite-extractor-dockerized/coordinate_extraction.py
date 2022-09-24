@@ -9,8 +9,8 @@ import config
 # Trigger the authentication flow.
 # https://developers.google.com/earth-engine/guides/service_account#use-a-service-account-with-a-private-key
 # https://signup.earthengine.google.com/#!/service_accounts
-service_account = 'ee-account@mit-hst-dengue.iam.gserviceaccount.com'
-credentials = ee.ServiceAccountCredentials(service_account, './data/mit-hst-dengue-83a25efbf2d7.json')
+service_account = config.service_account
+credentials = ee.ServiceAccountCredentials(service_account, './data_config/mit-hst-dengue-83a25efbf2d7.json')
 
 # Initialize the library.
 ee.Initialize(credentials)

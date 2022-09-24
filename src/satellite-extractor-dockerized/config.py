@@ -12,4 +12,5 @@ CODE = 5555
 LENGTH = 750
 RESOLUTION = 10
 COORDINATES_PATH = "./data_config/data.csv"
+service_account = 'ee-account@mit-hst-dengue.iam.gserviceaccount.com'
 
