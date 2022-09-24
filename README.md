@@ -127,7 +127,8 @@ Each satellite image is selected week-wise based on the [epi week](https://www.c
 1. [Read GCP bucket to Google Colab](https://github.com/sebasmos/satellite.extractor/blob/main/notebooks/Reading_GCP_from_Colab.ipynb)
 2. [Download satellite data for 5 cities](https://github.com/sebasmos/satellite.extractor/blob/main/notebooks/downloader_sentinel_5_cities.ipynb)
 3. [Download satellite data for 1024 cities](https://github.com/sebasmos/satellite.extractor/blob/main/notebooks/downloader_sentinel_all_cities.ipynb)
-
+4. [Download satellite cities locally - for N cities (customized)](https://github.com/sebasmos/satellite.extractor/blob/main/notebooks/local_downloader_sentinel_all_cities.ipynb)
+4. [Hash encryption algorithm](https://github.com/sebasmos/satellite.extractor/blob/main/notebooks/satellite_images_hashing.ipynb)
 ## Contributions
 
 Feel free to contact me if want to collaborate on this project.
