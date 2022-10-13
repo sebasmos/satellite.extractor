@@ -34,7 +34,7 @@ if __name__ == "__main__":
         print(f'{city} : {len(os.listdir(images_path))} images '.center(60,"-"))
         for img_path in os.listdir(images_path):
             path = os.path.join(root, city, img_path)
-            #print("Processing image ", os.path.join(root, city, img_path))
+            print("Processing image ", os.path.join(root, city, img_path))
             img = utils.read_tiff(path, config.image_size, resize_ratio=config.resize_ratio, resizing = config.resizing, normalize=config.normalize, printing=config.printing)
             list_images.append(img)
         total_time = time.time() - start_time
