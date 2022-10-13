@@ -110,6 +110,7 @@ def main(CLIENT_ID, CLIENT_SECRET, coordinates):
     
     all_bands_response_downloaded = request_all_bands.get_data(redownload=True)
     
+    """
     import shutil, glob
     #shutil.rmtree("data")
     
@@ -131,9 +132,10 @@ def main(CLIENT_ID, CLIENT_SECRET, coordinates):
             
     images = glob.glob("./" + dataset + "/*")
     
-if __name__ == '__main__':
+    """
     
-    coordinates = [-76.55323133405957, 3.4062672204498083, -76.4860619546151, 3.473745747318065]
-    CLIENT_ID = "****"
-    CLIENT_SECRET =  "****"
+if __name__ == '__main__':
+    coordinates = [-75.91946572624731, 8.726267219732208, -75.85162607114259, 8.793745747318063]
+    CLIENT_ID = "502cfd1a-9ad8-4b9a-9b4f-9a983e0db691"#"e6f0fe80-5ac2-4ed5-a256-8fa765e327a8"
+    CLIENT_SECRET = "jxAG7dBVOftd>E4+_|o)4E?m!Cf|+H.2b4#K(qZs"
     main(CLIENT_ID, CLIENT_SECRET, coordinates)
