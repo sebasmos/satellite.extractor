@@ -35,12 +35,9 @@ def cleaners(dataset, root_images):
 
 def get_epi_weeks(start):
     
-
     tdelta =  timedelta(days = 7)
-
     
     edges = [(start + i*tdelta) for i in range(2)]
-    
     
     return [(edges[i], edges[i+1]) for i in range(len(edges)-1)]
     
@@ -161,7 +158,7 @@ def download_multiple_images(coordinates, start, year, CLIENT_ID, CLIENT_SECRET)
     
     # Verify if images are empty, if not, correct
     img = np.array(image)
-    if img.sum() == 0:
+    if img.sum() == 0: # or img.sum()>=threshold # threshold=70 
         print("Image empty: ", img.sum())
         # Initialize  
         end = slots[0][1]
@@ -173,15 +170,12 @@ def download_multiple_images(coordinates, start, year, CLIENT_ID, CLIENT_SECRET)
             corrected_slot =  [(init, end)]
             #print("Slot corrected to: ", corrected_slot)
             list_of_requests = [get_true_color_request(slot) for slot in corrected_slot]
-                
             list_of_requests = [request.download_list[0] for request in list_of_requests]
             image = SentinelHubDownloadClient(config=config).download(list_of_requests, max_threads=5)
             img = np.array(image)
             print("This image is being replaced..")
         print("Slot corrected to: ", corrected_slot)
-        
     else:
-        #print(f"Pixel values: ", np.unique(img))
         pass
 
     '''
