@@ -7,7 +7,7 @@ DATASET
 dconf
 backup_datasets
 *.pyc
-csv
+#csv
 sentinelhub-py
 *.csv
 sentinelhub.egg-info
