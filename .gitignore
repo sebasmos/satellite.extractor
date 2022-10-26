@@ -9,7 +9,7 @@ backup_datasets
 *.pyc
 #csv
 sentinelhub-py
-*.csv
+#*.csv
 sentinelhub.egg-info
 dist
 *.json
