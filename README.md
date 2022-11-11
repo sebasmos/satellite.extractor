@@ -29,7 +29,7 @@
 
 ## Docker pipeline
 
-If you want to download data using docker, please follow the next commands.
+If you want to download data using docker,  please update the [config file](https://github.com/sebasmos/satellite.extractor/blob/main/src/satellite-extractor-dockerized/config.py) as desired and follow the next commands.
 
 ```
 docker build -f Dockerfile -t docker .
@@ -40,7 +40,7 @@ Run with syncronized volume:
 ```
 docker run -v /home/sebasmos/Desktop/satellite.extractor/src/satellite-extractor-dockerized:/Dengue -ti docker /bin/bash
 ```
-
+Finally, run `python satellite.extractor.py` to download the satellites as customized.
 
 ## Working locally
 
