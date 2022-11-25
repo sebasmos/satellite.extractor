@@ -25,7 +25,7 @@ concurrency= 5
 # The root directory path, Replace with your path 
 #p = Path('/home/sebasmos/Desktop/FULL_COLOMBIA_v2') 
 #p = Path("/home/sebasmos/Desktop/DATASETS/DATASET_augmented_v1")
-#p = Path("/home/sebasmos/Desktop/DATASETS/DATASET_augmented_v2_gaussian_blur")
+p = Path("/home/sebasmos/Desktop/DATASETS/DATASET_augmented_v2_gaussian_blur")
 
 # The Compartment OCID 
 compartment_id = "ocid1.compartment.oc1..aaaaaaaamgl2tu5vh7mcyjsd2h7tq5umvcq6ivcjftljmzaq53kct6khrd7q"# "ocid1.bucket.oc1.iad.aaaaaaaag7iym7awzokrjn63epcjuczilhxk22olsqpk6nafhc43ok4exjuq"#"ocid1.compartment.oc1..aaaaaaaamgl2tu5vh7mcyjsd2h7tq5umvcq6ivcjftljmzaq53kct6khrd7q"
