@@ -73,7 +73,7 @@ Feel free to contact me if want to collaborate on this project.
 """
 
 setup(name='satellite_extractor',
-      version='0.3',
+      version='0.4',
       description=DESCRIPTION,
       author = "Sebastian Cajas",
       license='MIT',

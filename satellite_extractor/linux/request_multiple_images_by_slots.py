@@ -8,7 +8,6 @@ https://github.com/sentinel-hub/eo-learn
 
 !pip install epiweeks
 
-
 '''
 
 from sentinelhub import SHConfig
