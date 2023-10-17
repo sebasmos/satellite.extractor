@@ -19,7 +19,6 @@ if __name__ == "__main__":
     threshold = config.threshold
     neighbor = ""
     root = config.root
-    code = config.code
     baseline = config.DATASET
     # Path to dataset with improved images
     aug_root =  config.aug_root
@@ -29,13 +28,15 @@ if __name__ == "__main__":
     CLEAN = False
     #import pdb
     #pdb.set_trace()
-    if CLEAN:
-        shutil.rmtree(aug_root)
-    else: 
-        try:
-            shutil.copytree(baseline, aug_root,dirs_exist_ok=True)
-        except:
-            pass
+    #if CLEAN:
+    if not os.path.exists(aug_root):
+        shutil.copytree(baseline, aug_root,dirs_exist_ok=True)
+        #shutil.rmtree(aug_root)
+    #else: 
+    #    try:
+    #        shutil.copytree(baseline, aug_root,dirs_exist_ok=True)
+    #    except:
+    #        pass
     if __name__ == "__main__":
         a = 0
         root = config.DATASET
@@ -49,9 +50,6 @@ if __name__ == "__main__":
             for img_path in sorted(os.listdir(images_path)):
                 path = os.path.join(root, city, img_path)
                 image_name = os.path.join(path.split("/")[-2:][0], path.split("/")[-2:][1])
-                #import pdb
-                #pdb.set_trace()
-            
                 img = util.read_tiff(path, config.image_size, resize_ratio= resize_ratio, resizing = resizing, normalize=normalize, printing=printing)
                 if np.sum(img)<threshold:
                     # if image content is lower than threshold, replace with the "best" image
