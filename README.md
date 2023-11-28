@@ -73,7 +73,7 @@ Finally, run `python satellite.extractor.py` to download the satellites as custo
 1. PART_2_satellite_imagery_augmentation: exploring forward-backward artifcat removal
 1. satellite_images_hashing: evaluate dataset quality by quantifying the number of duplicates on your data
 1. viz_many_folders: explore the visualization of satellite images 
-1. create_Cloud2CloudlesDataset: create cloud to cloudless paired image dataset
+1. [create_Cloud2CloudlesDataset](https://github.com/sebasmos/satellite.extractor/blob/main/notebooks/create_Cloud2CloudlesDataset.ipynb): create cloud to cloudless paired image dataset
 
 ## Contributions
 
