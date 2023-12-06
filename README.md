@@ -38,6 +38,11 @@ pip install satellite-extractor
 
 1. **Credentials for SentinelHub**: The best of this project is that you can download data for free using the Free Tier from SentinelHub. Follow the instructions to create your username and password [here](https://docs.sentinel-hub.com/api/latest/api/overview/authentication/). Please remember it is a free trial, access is limited! 
 
+### Branch versioning
+
+- *v.0.6*: including dockerized version and adding cloud2cloudless scripts
+
+- *methods_improvements*: adding uint16 java-scripts 
 
 ## Docker pipeline
 
