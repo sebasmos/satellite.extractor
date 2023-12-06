@@ -1,7 +1,7 @@
 # satellite.extractor.py
 import argparse
 import config
-import extractor as sat
+import satellite_extractor.extractor_original as sat
 
 if __name__ == "__main__":
  sat.run(

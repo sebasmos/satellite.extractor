@@ -136,6 +136,6 @@ def main(CLIENT_ID, CLIENT_SECRET, coordinates):
     
 if __name__ == '__main__':
     coordinates = [-75.91946572624731, 8.726267219732208, -75.85162607114259, 8.793745747318063]
-    CLIENT_ID = "502cfd1a-9ad8-4b9a-9b4f-9a983e0db691"#"e6f0fe80-5ac2-4ed5-a256-8fa765e327a8"
-    CLIENT_SECRET = "jxAG7dBVOftd>E4+_|o)4E?m!Cf|+H.2b4#K(qZs"
+    CLIENT_ID = "f89739e8-6e75-4e81-ad62-ed346276aa5e"
+    CLIENT_SECRET = "M3r5pLAipy9NAO9Z6doBPvgcHEetsPGc3Rpg6tQq"
     main(CLIENT_ID, CLIENT_SECRET, coordinates)

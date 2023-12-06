@@ -64,6 +64,14 @@ Finally, run `python satellite.extractor.py` to download the satellites as custo
 
 <hr>
 
+## Branch versioning
+
+*v0.7*: optimized satellite-extractor functions
+
+*v.0.6*: including dockerized version and adding cloud2cloudless scripts
+
+*methods_improvements*: adding uint16 java-scripts
+
 ## Use cases:
 
 1. [Read GCP bucket to Google Colab](https://github.com/sebasmos/satellite.extractor/blob/main/notebooks/Reading_GCP_from_Colab.ipynb)

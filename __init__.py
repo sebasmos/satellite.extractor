@@ -1,3 +1,1 @@
-from satellite_extractor.satellite-extractor-dockerized.linux.request_multiple_images_linux import download_multiple_images
-from satellite_extractor.satellite-extractor-dockerized.linux.request_multiple_images_linux import get_folder_ID
-from satellite_extractor.satellite-extractor-dockerized.linux.rename_linux import get_request_individual
+from satellite_extractor.algorithms import download_multiple_images_16_bit_forward_backward,download_image, get_folder_ID,get_folder_ID_optimized, get_request_individual
