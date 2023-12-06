@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 DESCRIPTION='Download spatio-temporally aligned satellite imagery with inter-band data augmentation based on hash encryption ',
 LONG_DESCRIPTION = """
 
-# [Satellite extractor](https://eo4society.esa.int/wp-content/uploads/2023/06/towards-a-smart-eco-epidemiological-model-of-dengue-in-colombia-using-satellite.pdf): Access Satellite Imagery with Geographical and Temporal Control
+# *Satellite-extractor*: Access Satellite Imagery with Geographical and Temporal Control
 
 
 *Satellite Extractor provides users with the capability to retrieve satellite imagery for specific geographical coordinates and predefined timestamps. While it offers a powerful tool for accessing remote sensing data, it's important to note that the quality of the images may not always be perfect due to potential cloud interference, which users may need to filter or process as necessary.*. 
@@ -11,7 +11,8 @@ LONG_DESCRIPTION = """
 **Sentinelhub grant**: Sponsoring request ID 1c081a: Towards a Smart Eco-epidemiological Model of Dengue in Colombia using Satellite in Collaboration with [MIT Critical Data Colombia](https://github.com/MITCriticalData-Colombia).  
 *Project supported by ESA Network of Resources Initiative*
 
-Find the full open-opensource datasets in HuggingFace: [Link](https://huggingface.co/MITCriticalData)
+- Find the full open-opensource datasets in HuggingFace: [Link](https://huggingface.co/MITCriticalData)
+- Find a short overview of this project [here]([Satellite extractor](https://eo4society.esa.int/wp-content/uploads/2023/06/towards-a-smart-eco-epidemiological-model-of-dengue-in-colombia-using-satellite.pdf))
 
 <p align="left">
     <a href="https://www.python.org/">
@@ -29,8 +30,10 @@ Find the full open-opensource datasets in HuggingFace: [Link](https://huggingfac
 ## Installation
 
 ```
-pip install satellite-extractor
+pip install satellite-extractor==0.6
 ```
+
+Find in Pypi: https://pypi.org/project/satellite-extractor/ 
 
 ## Credentials
 
@@ -56,16 +59,6 @@ docker run -v /home/sebasmos/Desktop/satellite.extractor/src/satellite-extractor
 ```
 Finally, run `python satellite.extractor.py` to download the satellites as customized.
 
-## Working locally
-
-1. Clone repository and install dependencies in `pip install -r requirements.txt`
-
-1. Create account on Sentinelhub to obtain [credentials](https://apps.sentinel-hub.com/dashboard/#/): 
-
-1. Install sentinelhub API, follow up the [official documentation](https://sentinelhub-py.readthedocs.io/en/latest/install.html).
-
-<hr>
-
 ## Use cases:
 
 1. [Read GCP bucket to Google Colab](https://github.com/sebasmos/satellite.extractor/blob/main/notebooks/Reading_GCP_from_Colab.ipynb)
@@ -79,7 +72,7 @@ Feel free to contact me if want to collaborate on this project.
 """
 
 setup(name='satellite_extractor',
-      version='0.4',
+      version='0.6',
       description=DESCRIPTION,
       author = "Sebastian Cajas",
       license='MIT',

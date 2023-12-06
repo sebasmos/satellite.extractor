@@ -29,6 +29,13 @@ Find the full open-opensource datasets in HuggingFace: [Link](https://huggingfac
 pip install satellite-extractor
 ```
 
+- Quick-start: 
+
+`import satellite_extractor as sat`
+
+`sat.run(TIMESTAPS, CLIENT_ID, CLIENT_SECRET, IMAGE_FORMAT, COORDINATES_PATH )`
+
+- see the `download_images.ipynb` notebook for learning how to initialize these variables.
 
 ## Credentials
 
@@ -63,6 +70,14 @@ Finally, run `python satellite.extractor.py` to download the satellites as custo
 1. Install sentinelhub API, follow up the [official documentation](https://sentinelhub-py.readthedocs.io/en/latest/install.html).
 
 <hr>
+
+## Branch versioning
+
+*v0.7*: optimized satellite-extractor functions
+
+*v.0.6*: including dockerized version and adding cloud2cloudless scripts
+
+*methods_improvements*: adding uint16 java-scripts
 
 ## Use cases:
 
