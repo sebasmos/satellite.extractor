@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 import shutil, os
-
 from sentinelhub import SHConfig
 import os
 import json
@@ -11,8 +10,6 @@ import matplotlib.pyplot as plt
 import sys
 from datetime import timedelta
 sys.path.insert(0,'..') 
-from sentinelhub import MimeType, CRS, BBox, SentinelHubRequest, SentinelHubDownloadClient, DataCollection, bbox_to_dimensions, DownloadRequest
-
 from epiweeks import Week, Year
 from datetime import date
 import glob, shutil
@@ -25,6 +22,26 @@ import random
 print("SentinelHub imports - passed")
 
 def clean_blank_folders(year, img_format):
+    """
+    Remove folders containing blank or empty images for a specified year and image format.
+
+    Parameters:
+    - year (str): The year for which blank folders should be cleaned.
+    - img_format (str): The image format (e.g., 'png', 'tiff') of the blank images.
+
+    Note:
+    This function assumes that blank images are identified by the presence of a file
+    named 'response.{img_format}' within each folder. Folders containing such images
+    will be recursively removed.
+
+    Example:
+    clean_blank_folders('2023', 'png')
+
+    This example will remove all folders containing blank PNG images within the '2023' directory.
+
+    Caution:
+    Use this function with care as it permanently deletes folders and their contents.
+    """
     path_to_blank_ids = f"./data/{year}/*/*response.{img_format}"
     ids = glob.glob(path_to_blank_ids)
     for idx in ids:
@@ -32,6 +49,45 @@ def clean_blank_folders(year, img_format):
         shutil.rmtree(folder_p)
 
 def get_images(coordinates, city_str, current_coor, years, weeks, img_format, root_images, CLIENT_ID, CLIENT_SECRET):
+    """
+    Download and organize satellite images for a specified city and time range.
+
+    Parameters:
+    - coordinates (tuple): Geographic coordinates (latitude, longitude) of the target location.
+    - city_str (str): Unique identifier or name for the city.
+    - current_coor (tuple): Current coordinates (latitude, longitude) for image retrieval.
+    - years (list): List of years for which images should be downloaded.
+    - weeks (list): List of weeks within each year for image retrieval.
+    - img_format (str): Image format (e.g., 'png', 'jpg') for downloaded images.
+    - root_images (str): Root directory for storing downloaded images.
+    - CLIENT_ID (str): Client ID for accessing the satellite imagery API.
+    - CLIENT_SECRET (str): Client secret for accessing the satellite imagery API.
+
+    Note:
+    This function iterates through specified years and weeks, downloads satellite images,
+    organizes them into folders, renames images based on JSON timestamp filters, and removes
+    folders containing blank images.
+
+    Example:
+    get_images(
+        coordinates=(latitude, longitude),
+        city_str='example_city',
+        current_coor=(latitude, longitude),
+        years=[2022, 2023],
+        weeks=range(1, 53),
+        img_format='png',
+        root_images='./data',
+        CLIENT_ID='your_client_id',
+        CLIENT_SECRET='your_client_secret'
+    )
+
+    This example will download and organize satellite images for 'example_city' from 2022 to 2023.
+
+    Caution:
+    Ensure the provided CLIENT_ID and CLIENT_SECRET are valid and authorized to access the satellite imagery API.
+    """
+
+    folder_path = ""
     folder_path = ""
     for year in years:
         print(f"Year: {year}")
@@ -99,42 +155,3 @@ def run(TIMESTAPS, CLIENT_ID, CLIENT_SECRET, IMAGE_FORMAT, COORDINATES_PATH):
     images = glob.glob(f"{dataset_store}/*")
     print(images)
     print("Done")
-
-# import pandas as pd
-# import glob
-# import json
-# import datetime as dt
-# from urllib.parse import unquote
-# import os
-# import shutil
-# from sentinelhub import SHConfig
-# import datetime
-# import numpy as np
-# import matplotlib.pyplot as plt
-# import sys
-# from datetime import timedelta
-# sys.path.insert(0,'..') 
-# from sentinelhub import MimeType, CRS, BBox, SentinelHubRequest, SentinelHubDownloadClient, DataCollection, bbox_to_dimensions, DownloadRequest
-# # !pip install epiweeks
-# from epiweeks import Week, Year
-# from datetime import date
-# import glob, shutil
-# import sys
-# sys.path.insert(0,'../') 
-# from satellite_extractor.algorithms import download_multiple_images_16_bit_forward_backward, get_folder_ID,download_image
-# import argparse
-# import pandas as pd
-# cred = pd.read_csv("/Users/sebasmos/Desktop/satellite.extractor/satellite_extractor/satellite-extractor-dockerized/data_config/SentinelHub-credentials.csv")
-# CLIENT_ID = str(cred.iloc[0,:][0])
-# CLIENT_SECRET = str(cred.iloc[1,:][0])
-# LATITUDE = 3.4400
-# LONGITUDE= -76.5197
-# TIMESTAPS = [2016,2016]
-# # projection = CRS.WGS84
-# IMAGE_FORMAT = "tiff"
-# CODE = 5555
-# LENGTH = 750
-# RESOLUTION = 10
-# COORDINATES_PATH = "/Users/sebasmos/Desktop/satellite.extractor/data/10_municipalities_full.csv"
-# service_account = 'ee-account@mit-hst-dengue.iam.gserviceaccount.com'
-# run(TIMESTAPS, CLIENT_ID, CLIENT_SECRET, IMAGE_FORMAT, COORDINATES_PATH )

@@ -23,6 +23,26 @@ from datetime import date
 import glob, shutil
 
 def cleaners(dataset, root_images):
+    """
+    Remove specific files with a '.tiff' extension from the dataset.
+
+    Parameters:
+    - dataset (str): Path to the dataset directory containing TIFF files.
+    - root_images (str): Root directory where the dataset is located.
+
+    Note:
+    This function recursively traverses the dataset directory and removes files
+    with a '.tiff' extension. It is designed to clean up the dataset by removing
+    unwanted or unnecessary files.
+
+    Example:
+    cleaners('./DATASETS', './data')
+
+    This example will remove all '.tiff' files from the 'DATASETS' directory within the 'data' root directory.
+
+    Caution:
+    Ensure the provided dataset and root_images paths are accurate to avoid unintended file deletions.
+    """
     for root, dirs, files in os.walk(dataset, topdown=True):
         for name in files:
              path = os.path.join(root, name)

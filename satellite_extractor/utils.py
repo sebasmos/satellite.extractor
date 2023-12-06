@@ -1,4 +1,12 @@
 import numpy as np
+import glob
+import os
+import matplotlib.pyplot as plt
+from skimage import io
+import skimage
+import numpy as np
+from matplotlib.backends.backend_pdf import PdfPages
+import random
 
 def convolucion_upsampling(imagen, filtro):
     """
@@ -40,7 +48,34 @@ class TestConvolucionUpsampling():
 
         
         print("Convolution shape: ",convolucion_upsampling(imagen, filtro).shape)
-        
+
+def read_tiff(img_path, resize_ratio=None, resizing=True, normalize=True, printing=True):
+    """
+    Read and preprocess a TIFF image.
+
+    Parameters:
+    - img_path (str): Path to the TIFF image file.
+    - resize_ratio (float, optional): Ratio for resizing the image.
+    - resizing (bool, optional): Flag to indicate whether resizing is enabled.
+    - normalize (bool, optional): Flag to indicate whether image normalization is enabled.
+    - printing (bool, optional): Flag to indicate whether to print information about the image.
+
+    Returns:
+    - img_F (numpy.ndarray): Processed image.
+    """
+    img = io.imread(img_path)
+    img_F = img.copy()
+
+    path_img = os.path.basename(img_path)
+    if normalize:
+        CHANNELS = range(12)
+        img_F = np.dstack([
+            skimage.exposure.rescale_intensity(img_F[:, :, c], out_range=(0, 1))
+            for c in CHANNELS])
+    if printing:
+        print(f"(origin shape: {path_img}: {img.shape} -> rescale: {str(img_F.shape)}) - Range -> [{img_F.min(), img_F.max()}]")
+    return img_F
+
 if __name__ == '__main__':
     TestConvolucionUpsampling().test_convolucion_upsampling()
 
