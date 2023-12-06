@@ -29,6 +29,13 @@ Find the full open-opensource datasets in HuggingFace: [Link](https://huggingfac
 pip install satellite-extractor
 ```
 
+- Quick-start: 
+
+`import satellite_extractor as sat`
+
+`sat.run(TIMESTAPS, CLIENT_ID, CLIENT_SECRET, IMAGE_FORMAT, COORDINATES_PATH )`
+
+- see the `download_images.ipynb` notebook for learning how to initialize these variables.
 
 ## Credentials
 
