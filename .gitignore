@@ -17,9 +17,9 @@ __pycache__
 mit-hst-dengue-83a25efbf2d7.json
 **/*.pdf
 *.pdf
-
+**/*.DS_Store
+*.DS_Store
 **/*.tif
 *.tif
-
 **/*.tiff
 *.tiff
