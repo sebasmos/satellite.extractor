@@ -609,6 +609,16 @@ def download_multiple_images_16_bits(coordinates, start, year, CLIENT_ID, CLIENT
     plot_image(img[:,:,1], factor=1.0, cmap=plt.cm.Greys_r, vmin=0, vmax=120)
     '''
     return img
+
+def get_folder_ID_optimized(walker):    
+    x = ""        
+    for root, dirs, files in os.walk(walker, topdown=True):
+        for name in files:
+            path = os.path.join(root, name)
+            if "response" in path:
+                x = path.replace("/" + "response." + "tiff", "")
+    return x
+
 def get_folder_ID(root_images, img_format):
     
     walker = "." + root_images
@@ -622,7 +632,35 @@ def get_folder_ID(root_images, img_format):
 
     return folder_path
 
-def get_request_individual(request_file, img_format):
+def get_request_individual(request_file, city_str):
+    with open(request_file, 'r') as req:
+        json_decode = json.load(req)
+        
+        dataFilter = json_decode["request"]["payload"]["input"]["data"][0]
+        timeRanges = dataFilter["dataFilter"]["timeRange"]
+        start = timeRanges["from"].split("T")[0]
+        end = timeRanges["to"].split("T")[0]
+        time_stamp = start + "_to_" + end
+        name_image = str(city_str) + "_" + start
+        
+        data = {
+            "start": start,
+            "end": end,
+            "time_stamp": time_stamp,
+            "url": request_file,
+        }
+            
+        df = pd.DataFrame(data, index=['date'])
+        
+        # Update name of files using JSON timestamp filter
+        response_img = request_file.split("request.json")[0] + "response.tiff"
+        image_path = os.path.join(response_img).replace('response', name_image)        
+        print("{0} renamed to {1}".format(response_img, image_path))
+        shutil.move(response_img, image_path)
+        
+        return df
+
+def get_request_individual_image_index(request_file, img_format):
     with open(request_file, 'r') as req:
         json_decode = json.load(req)
         

@@ -19,59 +19,10 @@ import glob, shutil
 import pandas as pd
 sys.path.insert(0,'Dengue/') 
 
-from satellite_extractor.algorithms import download_multiple_images_16_bit_forward_backward,download_image, download_multiple_images#, get_request_individual
+from satellite_extractor.algorithms import download_multiple_images_16_bit_forward_backward,download_image, download_multiple_images, get_request_individual, get_folder_ID_optimized
 
 import random
 print("SentinelHub imports - passed")
-
-def get_epi_weeks(start):
-    
-
-    tdelta =  timedelta(days = 7)
-
-    
-    edges = [(start + i*tdelta) for i in range(2)]
-    
-    
-    return [(edges[i], edges[i+1]) for i in range(len(edges)-1)]
-    
-
-def get_folder_ID_optimized(walker):    
-    x = ""        
-    for root, dirs, files in os.walk(walker, topdown=True):
-        for name in files:
-            path = os.path.join(root, name)
-            if "response" in path:
-                x = path.replace("/" + "response." + "tiff", "")
-    return x
-
-def get_request_individual(request_file, city_str):
-    with open(request_file, 'r') as req:
-        json_decode = json.load(req)
-        
-        dataFilter = json_decode["request"]["payload"]["input"]["data"][0]
-        timeRanges = dataFilter["dataFilter"]["timeRange"]
-        start = timeRanges["from"].split("T")[0]
-        end = timeRanges["to"].split("T")[0]
-        time_stamp = start + "_to_" + end
-        name_image = str(city_str) + "_" + start
-        
-        data = {
-            "start": start,
-            "end": end,
-            "time_stamp": time_stamp,
-            "url": request_file,
-        }
-            
-        df = pd.DataFrame(data, index=['date'])
-        
-        # Update name of files using JSON timestamp filter
-        response_img = request_file.split("request.json")[0] + "response.tiff"
-        image_path = os.path.join(response_img).replace('response', name_image)        
-        print("{0} renamed to {1}".format(response_img, image_path))
-        shutil.move(response_img, image_path)
-        
-        return df
 
 def clean_blank_folders(year, img_format):
     path_to_blank_ids = f"./data/{year}/*/*response.{img_format}"
@@ -110,12 +61,6 @@ def run(TIMESTAPS, CLIENT_ID, CLIENT_SECRET, IMAGE_FORMAT, COORDINATES_PATH):
     
     path_csv = COORDINATES_PATH
     df = pd.read_csv(path_csv)
-
-    # coordinates_dict = dict(zip(dict_coordinates['Municipality code'], dict_coordinates.square))
-    # print(coordinates_dict)
-    
-    # df = pd.DataFrame(data=coordinates_dict).T.reset_index()
-    # df.columns = ['municipalities', 'coordinates']
     root_images = "./data"
     
     if not os.path.isdir(root_images):
@@ -125,12 +70,12 @@ def run(TIMESTAPS, CLIENT_ID, CLIENT_SECRET, IMAGE_FORMAT, COORDINATES_PATH):
     for i, row in df.iterrows():
         city_code = row['municipalities']
         city_str = os.path.abspath(f"DATASET/{row['municipalities']}")
-        # import pdb;pdb.set_trace()
+        
         if not os.path.exists(city_str):
             os.makedirs(city_str)
             
         print(f"City: {row['municipalities']} - Coordinates: {row['coordinates']}")
-        # import pdb;pdb.set_trace()
+        
         current_coor = [float(value) for value in row['coordinates'][1:-1].split(', ')]
         get_images(coordinates=row, city_str=city_code, current_coor=current_coor,
                    years=years, weeks=weeks, img_format=img_format,
