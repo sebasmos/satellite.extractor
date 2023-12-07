@@ -155,3 +155,18 @@ def run(TIMESTAPS, CLIENT_ID, CLIENT_SECRET, IMAGE_FORMAT, COORDINATES_PATH):
     images = glob.glob(f"{dataset_store}/*")
     print(images)
     print("Done")
+
+# cred = pd.read_csv("/Users/sebasmos/Desktop/satellite.extractor/satellite_extractor/satellite-extractor-dockerized/data_config/SentinelHub-credentials.csv")
+# CLIENT_ID = str(cred.iloc[0,:][0])
+# CLIENT_SECRET = str(cred.iloc[1,:][0])
+# LATITUDE = 3.4400
+# LONGITUDE= -76.5197
+# TIMESTAPS = [2016,2018]
+# # projection = CRS.WGS84
+# IMAGE_FORMAT = "tiff"
+# CODE = 5555
+# LENGTH = 750
+# RESOLUTION = 10
+# COORDINATES_PATH = "/Users/sebasmos/Desktop/satellite.extractor/data/10_municipalities_full.csv"
+# service_account = 'ee-account@mit-hst-dengue.iam.gserviceaccount.com'
+# sat.run(TIMESTAPS, CLIENT_ID, CLIENT_SECRET, IMAGE_FORMAT, COORDINATES_PATH )

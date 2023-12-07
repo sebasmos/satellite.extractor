@@ -30,7 +30,7 @@ LONG_DESCRIPTION = """
 ## Installation
 
 ```
-pip install satellite-extractor==0.6
+pip install satellite-extractor==0.7
 ```
 
 Find in Pypi: https://pypi.org/project/satellite-extractor/ 

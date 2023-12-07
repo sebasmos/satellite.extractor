@@ -95,6 +95,12 @@ Finally, run `python satellite.extractor.py` to download the satellites as custo
 1. viz_many_folders: explore the visualization of satellite images 
 1. [create_Cloud2CloudlesDataset](https://github.com/sebasmos/satellite.extractor/blob/main/notebooks/create_Cloud2CloudlesDataset.ipynb): create cloud to cloudless paired image dataset
 
+## unsorted todos
+
+- update dockerized api
+- include Super-resolution into pipelines
+- include Cloud removal algorithms pipeline
+
 ## Contributions
 
 Feel free to contact me if want to collaborate on this project.
