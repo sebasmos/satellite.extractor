@@ -105,3 +105,19 @@ Finally, run `python satellite.extractor.py` to download the satellites as custo
 
 Feel free to contact me if want to collaborate on this project.
 
+If you use this code for your research, please cite our papers.
+
+```
+@article{cajasmulti,
+  title={A Multi-Modal Satellite Imagery Dataset for Public Health Analysis in Colombia},
+  author={Cajas, Sebastian A and Restrepo, David and Moukheiber, Dana and Kuo, Kuan Ting and Wu, Chenwei and Chicangana, David Santiago Garcia and Paddo, Atika Rahman and Moukheiber, Mira and Moukheiber, Lama and Moukheiber, Sulaiman and others}
+}
+
+@article{kuo2024denguenet,
+  title={DengueNet: Dengue Prediction using Spatiotemporal Satellite Imagery for Resource-Limited Countries},
+  author={Kuo, Kuan-Ting and Moukheiber, Dana and Ordonez, Sebastian Cajas and Restrepo, David and Paddo, Atika Rahman and Chen, Tsung-Yu and Moukheiber, Lama and Moukheiber, Mira and Moukheiber, Sulaiman and Purkayastha, Saptarshi and others},
+  journal={arXiv preprint arXiv:2401.11114},
+  year={2024}
+}
+```
+
