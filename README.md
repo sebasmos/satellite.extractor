@@ -11,7 +11,6 @@
 **Sentinelhub grant**: Sponsoring request ID 1c081a: Towards a Smart Eco-epidemiological Model of Dengue in Colombia using Satellite in Collaboration with [MIT Critical Data Colombia](https://github.com/MITCriticalData-Colombia).  
 *Project supported by ESA Network of Resources Initiative*
 
-Find the full open-opensource datasets in HuggingFace: [Link](https://huggingface.co/MITCriticalData)
 
 <p align="left">
     <a href="https://www.python.org/">
