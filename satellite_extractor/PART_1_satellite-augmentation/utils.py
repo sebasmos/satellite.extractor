@@ -1,5 +1,3 @@
-import albumentations as A
-from albumentations.pytorch import ToTensorV2
 import glob
 import os
 import copy
@@ -68,41 +66,6 @@ def read_tiff(img_path, image_size, resize_ratio=None, resizing = True, normaliz
   return img_F
 
 
-def augment_satellite_replaced_img(path, display=True, resize_ratio=(1, 1, 1)):
-        """
-        Augment images given image path 
-        https://albumentations.ai/docs/getting_started/image_augmentation/?query=RandomBrightnessContrast
-        ::param path: image path
-        """
-        #print("augmenting ", path)
-        count = 1
-        count2 = 1
-        count3 = 1
-        image_name = path.split("/")[-1][:-5]
-        img = (255*read_tiff(path, config.image_size, resize_ratio=resize_ratio, resizing = True, normalize=True, printing=True)).astype("uint8")
-        B =img[:,:,1:4][:,:,0]
-        G =img[:,:,1:4][:,:,1]
-        R =img[:,:,1:4][:,:,2]
-        RGB_img = np.stack([R,G,B]).transpose(2,1,0)
-
-        # RGBSHIFT
-        if random.random() > 0.5:
-            img[:,:,1:4] = np.array(apply_rgbshift(RGB_img))
-            print(f"[AUGMENTED] with apply_rgbshift: {image_name}")
-            count+=1
-            return img
-        # CLAHE
-        if random.random() > 0.5:
-            img[:,:,1:4] = np.array(apply_clahe(RGB_img))
-            print(f"[AUGMENTED] with apply_clahe: {image_name}")
-            count2+=1
-            return img
-        #random_brightness
-        else: #random.random() > 0.5:
-            img[:,:,1:4] = np.array(random_brightness(RGB_img))
-            print(f"[AUGMENTED] with random_brightness: {image_name}")
-            count3+=1
-            return img
 def find_closest_temporal_neighbor(path, images, threshold, resize_ratio = None, resizing = False, normalize = True, printing= False):
     """
     Find the closest temporal neighbor for an image that does not follow np.sum(img)>threshold. The best image is chosen 
@@ -150,15 +113,15 @@ def find_closest_temporal_neighbor(path, images, threshold, resize_ratio = None,
         img = read_tiff(images[t1], config.image_size, resize_ratio= resize_ratio, resizing = resizing, normalize=normalize, printing=printing)
         assert np.sum(img_up)>=threshold, "image < threshold"
         print(f"-->[FORWARD] - image {current} will be replaced with {f_img} - Temporal distance = [Forward = {upward}, backward = {backward}]")
-        return augment_satellite_replaced_img(images[t1])
+        return img
     elif upward>backward:
         img = read_tiff(images[t2], config.image_size, resize_ratio= resize_ratio, resizing = resizing, normalize=normalize, printing=printing)
         assert np.sum(img_down)>=threshold, "image < threshold"
         print(f"-->[BACKWARDS] - image {current} will be replaced with {b_img} - Temporal distance = [Forward = {upward}, backward = {backward}]")
-        return augment_satellite_replaced_img(images[t2])
+        return img
     elif upward==backward:
         r = [t1 if random.choice(["t1","t2"]) == "t1" else t2][0]
         random_img = os.path.join(images[r].split("/")[-2:][0], images[r].split("/")[-2:][1])
         img = read_tiff(images[r], config.image_size, resize_ratio= resize_ratio, resizing = resizing, normalize=normalize, printing=printing)
         print(f"-->[EQUIDISTANT] - image {current} will be replaced with {random_img} - Temporal distance = [Forward = {upward} = backward = {backward}]")
-        return augment_satellite_replaced_img(images[r])
+        return img

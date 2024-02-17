@@ -18,14 +18,11 @@ if __name__ == "__main__":
     count = 0
     threshold = config.threshold
     neighbor = ""
-    root = config.root
-    code = config.code
-    baseline = config.DATASET
+    root = config.DATASET
     # Path to dataset with improved images
-    aug_root =  config.aug_root
+    aug_root = os.path.join(root, config.DESTINATION_FOLDER)
     print(f"root: ", root)
-    print(f"baseline: ", baseline)
-    print(f"aug_root: ", aug_root)
+    print(f"Destination folder: ", aug_root)
     CLEAN = False
     #import pdb
     #pdb.set_trace()
@@ -33,7 +30,7 @@ if __name__ == "__main__":
         shutil.rmtree(aug_root)
     else: 
         try:
-            shutil.copytree(baseline, aug_root,dirs_exist_ok=True)
+            shutil.copytree(root, aug_root,dirs_exist_ok=True)
         except:
             pass
     if __name__ == "__main__":
