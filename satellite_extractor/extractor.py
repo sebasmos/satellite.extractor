@@ -132,7 +132,7 @@ def run(TIMESTAPS, CLIENT_ID, CLIENT_SECRET, IMAGE_FORMAT, COORDINATES_PATH):
             
         print(f"City: {row['municipalities']} - Coordinates: {row['coordinates']}")
         
-        current_coor = [float(value) for value in row['coordinates'][1:-1].split(', ')]
+        current_coor = [float(value) for value in row['coordinates'][1:-1].split(',')]
         get_images(coordinates=row, city_str=city_code, current_coor=current_coor,
                    years=years, weeks=weeks, img_format=img_format,
                    root_images=root_images, CLIENT_ID=CLIENT_ID, CLIENT_SECRET=CLIENT_SECRET)
