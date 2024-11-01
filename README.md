@@ -124,5 +124,16 @@ If you use this code for your research, please cite our papers.
   journal={arXiv preprint arXiv:2401.11114},
   year={2024}
 }
+
+@article{moukheiber2024multimodal,
+  title={A multimodal framework for extraction and fusion of satellite images and public health data},
+  author={Moukheiber, Dana and Restrepo, David and Cajas, Sebasti{\'a}n Andr{\'e}s and Montoya, Mar{\'\i}a Patricia Arbel{\'a}ez and Celi, Leo Anthony and Kuo, Kuan-Ting and L{\'o}pez, Diego M and Moukheiber, Lama and Moukheiber, Mira and Moukheiber, Sulaiman and others},
+  journal={Scientific Data},
+  volume={11},
+  number={1},
+  pages={634},
+  year={2024},
+  publisher={Nature Publishing Group UK London}
+}
 ```
 
